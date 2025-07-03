@@ -1,31 +1,23 @@
 {
   "manifest_version": 3,
-  "name": "Smart Price Compare",
+  "name": "Price Tracker",
   "version": "1.0",
-  "description": "Compare product prices across stores automatically while browsing.",
-  "permissions": ["activeTab", "scripting", "storage"],
-  "host_permissions": ["<all_urls>"],
+  "permissions": ["scripting", "activeTab", "storage"],
+  "host_permissions": [
+    "https://www.amazon.com/*",
+    "https://www.walmart.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "action": {
     "default_popup": "popup.html",
-    "default_icon": {
-      "16": "assets/icon16.png",
-      "48": "assets/icon48.png",
-      "128": "assets/icon128.png"
-    }
-  },
-  "background": {
-    "service_worker": "background.js",
-    "type": "module"
+    "default_icon": "icon.png"
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": ["https://www.amazon.com/*", "https://www.walmart.com/*"],
       "js": ["content.js"]
     }
-  ],
-  "icons": {
-    "16": "assets/icon16.png",
-    "48": "assets/icon48.png",
-    "128": "assets/icon128.png"
-  }
+  ]
 }

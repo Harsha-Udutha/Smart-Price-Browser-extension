@@ -1,22 +1,13 @@
-document.addEventListener("DOMContentLoaded", () => {
-  chrome.storage.local.get(["priceData", "product"], (result) => {
-    const product = result.product || "N/A";
-    const priceData = result.priceData || {};
-
-    document.getElementById("productName").textContent = product;
-
-    const priceList = document.getElementById("priceList");
-    priceList.innerHTML = "";
-
-    if (Object.keys(priceData).length === 0) {
-      priceList.innerHTML = "<li>No prices found.</li>";
-      return;
-    }
-
-    for (const [source, price] of Object.entries(priceData)) {
-      const li = document.createElement("li");
-      li.textContent = `${source}: ${price}`;
-      priceList.appendChild(li);
-    }
-  });
+chrome.storage.local.get("productData", ({ productData }) => {
+  if (productData) {
+    const { title, price, source, url } = productData;
+    document.getElementById("output").innerHTML = `
+      <strong>${title}</strong><br>
+      Price: ${price}<br>
+      Site: ${source}<br>
+      <a href="${url}" target="_blank">View Product</a>
+    `;
+  } else {
+    document.getElementById("output").innerText = "No product data found.";
+  }
 });
