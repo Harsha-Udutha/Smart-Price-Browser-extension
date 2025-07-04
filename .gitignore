@@ -1,0 +1,18 @@
+# Ignore Firebase config (to keep API keys private)
+firebase-config.js
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Node-related
+node_modules/
+npm-debug.log*
+
+# Ignore VSCode/editor configs
+.vscode/
+.idea/
+
+# Environment files (if you use them later)
+.env
+.env.*
