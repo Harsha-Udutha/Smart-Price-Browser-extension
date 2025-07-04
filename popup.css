@@ -1,0 +1,21 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 15px;
+  width: 300px;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+h1 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+#product-container {
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+#prices p {
+  margin: 4px 0;
+}

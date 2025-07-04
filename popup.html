@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head><title>Price Info</title></head>
-<body>
-  <h3>Product Info</h3>
-  <div id="output">Loading...</div>
-  <script src="popup.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Price Tracker</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <h1>Product Price Tracker</h1>
+    <div id="product-container">
+      <p><strong>Product:</strong> <span id="product-name">Loading...</span></p>
+      <div id="prices">
+        <p>Loading prices...</p>
+      </div>
+    </div>
+    <script type="module" src="popup.js"></script>
+  </body>
 </html>

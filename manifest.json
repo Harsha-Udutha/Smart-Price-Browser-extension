@@ -1,23 +1,38 @@
 {
   "manifest_version": 3,
-  "name": "Price Tracker",
+  "name": "Product Price Tracker",
   "version": "1.0",
+  "description": "Scrape product data and save it to Firebase.",
   "permissions": ["scripting", "activeTab", "storage"],
-  "host_permissions": [
-    "https://www.amazon.com/*",
-    "https://www.walmart.com/*"
-  ],
+  "host_permissions": ["<all_urls>"],
   "background": {
-    "service_worker": "background.js"
-  },
-  "action": {
-    "default_popup": "popup.html",
-    "default_icon": "icon.png"
+    "service_worker": "background.js",
+    "type": "module"
   },
   "content_scripts": [
     {
-      "matches": ["https://www.amazon.com/*", "https://www.walmart.com/*"],
-      "js": ["content.js"]
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
     }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "web_accessible_resources": [
+  {
+    "resources": ["content.js"],
+    "matches": ["<all_urls>"]
+  }
   ]
 }
